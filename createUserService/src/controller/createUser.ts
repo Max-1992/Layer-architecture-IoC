@@ -14,18 +14,12 @@ import { Request, Response } from "express"
 import { ICreateUserService } from "../application/ICreateUser";
 import { IUserDto } from "../application/IUserDto";
 
-// Class
-import CreateUserServiceLocator from "../application/createUserLocator";
-
 
 @controller("/api/v1/user")
 export default class createUserController implements interfaces.Controller {
 
-    private readonly createUserService: ICreateUserService;
 
-    constructor(@inject(TYPES.CreateUserServiceLocator) serviceLocator: CreateUserServiceLocator) {
-        this.createUserService = serviceLocator.GetCreateUserService()
-    }
+    constructor(@inject(TYPES.ICreateUserService) private createUserService: ICreateUserService) {}
 
     @httpPost("/add")
     public async createUser(@request() req: Request, @response() res: Response) {

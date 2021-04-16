@@ -1,4 +1,5 @@
 export const TYPES = {
-    CreateUserServiceLocator : Symbol.for("CreateUserServiceLocator"),
-    IUserRepository: Symbol.for("IUserRepository")
+    ICreateUserService : Symbol.for("ICreateUserService"),
+    IUserRepository: Symbol.for("IUserRepository"),
+    IGeneratorId: Symbol.for("IGeneratorId")
 };

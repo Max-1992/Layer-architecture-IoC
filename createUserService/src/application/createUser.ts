@@ -1,3 +1,10 @@
+
+// Inversify
+import { inject, injectable } from "inversify";
+
+// Types
+import { TYPES } from "../config/constant/types"
+
 // Interface
 import { ICreateUserService } from "./ICreateUser";
 import { IUserRepository } from "../repository/IUserRepository";
@@ -7,23 +14,23 @@ import { IUserDto } from "./IUserDto";
 import { User } from "../entities/user";
 
 // Dependencies
-import * as uuid from 'uuid'
+import { IGeneratorId } from "../services/uuid/IGenerator";
 
-
+@injectable()
 export default class CreateUserService implements ICreateUserService {
 
-    // private userRepository: IUserRepository;
 
-    constructor(private userRepository: IUserRepository) {
-        // this.userRepository = userRepository;
-    }
+    constructor(
+        @inject(TYPES.IUserRepository) private userRepository: IUserRepository,
+        @inject(TYPES.IGeneratorId) private generatorId: IGeneratorId,
+        ) {}
 
     public async create(userDto: IUserDto): Promise<IUserDto> {
         try {
             const userDTO: IUserDto = userDto;
 
             // Create a unique Id for our user.
-            userDTO.id = uuid.v4()
+            userDTO.id = this.generatorId.generate();
 
             // Create a Date High user.
             userDTO.registrationDate = new Date();

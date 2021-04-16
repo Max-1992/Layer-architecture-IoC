@@ -8,17 +8,21 @@ import { TYPES } from "./constant/types"
 
 
 // Interface
+import { ICreateUserService } from "../application/ICreateUser"
 import { IUserRepository } from "../repository/IUserRepository"
+import { IGeneratorId } from "../services/uuid/IGenerator"
 
 // Class
-import CreateUserServiceLocator from "../application/createUserLocator"
+import CreateUserService from "../application/createUser"
 import { UserRepository } from "../repository/userRepository"
+import { GeneratorId } from "../services/uuid/uuid.adapter"
 
 // Declare IoC
 const container = new Container()
 
 // set up bindings
-container.bind<CreateUserServiceLocator>(TYPES.CreateUserServiceLocator).to(CreateUserServiceLocator)
+container.bind<ICreateUserService>(TYPES.ICreateUserService).to(CreateUserService)
 container.bind<IUserRepository>(TYPES.IUserRepository).to(UserRepository)
+container.bind<IGeneratorId>(TYPES.IGeneratorId).to(GeneratorId)
 
 export { container }
