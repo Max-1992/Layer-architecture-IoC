@@ -27,7 +27,8 @@ export default class CreateUserService implements ICreateUserService {
 
     public async create(userDto: IUserDto): Promise<IUserDto> {
         try {
-            const userDTO: IUserDto = userDto;
+            // Generate a copy of the received data.
+            const userDTO: IUserDto = { ...userDto };
 
             // Create a unique Id for our user.
             userDTO.id = this.generatorId.generate();
