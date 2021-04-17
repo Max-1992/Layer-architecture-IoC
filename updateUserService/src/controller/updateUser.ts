@@ -17,7 +17,7 @@ import UpdateUserServiceLocator from "../application/updateServiceLocator";
 
 
 @controller("/api/v1/user")
-export default class createUserController implements interfaces.Controller {
+export default class updateUserController implements interfaces.Controller {
 
     private readonly updateUserService: IUpdateUserService;
 
