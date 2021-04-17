@@ -17,7 +17,7 @@ import GetUserServiceLocator from "../application/getUserLocator";
 
 
 @controller('/api/v1/user')
-export default class getUserController implements interfaces.Controller {
+export default class GetUserController implements interfaces.Controller {
 
     private readonly getUserService: IGetUserService;
 

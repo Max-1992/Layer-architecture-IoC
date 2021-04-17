@@ -19,7 +19,7 @@ import CreateUserServiceLocator from "../application/createUserLocator";
 
 
 @controller("/api/v1/user")
-export default class createUserController implements interfaces.Controller {
+export default class CreateUserController implements interfaces.Controller {
 
     private readonly createUserService: ICreateUserService;
 
