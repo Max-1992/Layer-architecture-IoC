@@ -12,6 +12,8 @@ import { Request, Response } from "express"
 
 // Interface
 import { IDeleteUserService } from "../application/IDeleteUser";
+
+// Class
 import DeleteUserServiceLocator from "../application/deleteServiceLocator";
 
 @controller('/api/v1/user')

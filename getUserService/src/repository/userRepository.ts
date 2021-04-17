@@ -13,7 +13,7 @@ export class UserRepository implements IUserRepository {
 
     constructor() {}
 
-    public async getById(id: string): Promise<IUserDto> {
+    async getById(id: string): Promise<IUserDto> {
         // Db save Object collection Users.
         const user: IUserDto | any = await UserModel.findOne({ id });
 

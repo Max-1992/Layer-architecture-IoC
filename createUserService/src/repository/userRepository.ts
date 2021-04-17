@@ -14,7 +14,7 @@ export class UserRepository implements IUserRepository {
 
     constructor() {}
 
-    public async save(user: User): Promise<IUserDto> {
+    async save(user: User): Promise<IUserDto> {
 
         // Create User Object
         const newUser = new UserModel(user)
