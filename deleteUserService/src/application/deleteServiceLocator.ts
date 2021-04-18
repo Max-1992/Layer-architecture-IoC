@@ -13,7 +13,7 @@ import DeleteUserService from "./deleteUser";
 @injectable()
 export default class DeleteUserServiceLocator {
 
-    constructor(@inject(TYPES.IUserRepository) private userRepository: IUserRepository) { }
+    constructor( @inject(TYPES.IUserRepository) private userRepository: IUserRepository ) { }
 
     public GetDeleteUserService() {
         return new DeleteUserService(this.userRepository);

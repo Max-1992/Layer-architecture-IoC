@@ -13,7 +13,7 @@ import UpdateUserService from "./updateUser";
 @injectable()
 export default class UpdateUserServiceLocator {
 
-    constructor(@inject(TYPES.IUserRepository) private userRepository: IUserRepository) { }
+    constructor( @inject(TYPES.IUserRepository) private userRepository: IUserRepository ) { }
 
     public GetUpdateUserService() {
         return new UpdateUserService(this.userRepository);

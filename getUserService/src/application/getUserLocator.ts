@@ -13,7 +13,7 @@ import GetUserService from "./getUser";
 @injectable()
 export default class GetUserServiceLocator {
 
-    constructor(@inject(TYPES.IUserRepository) private userRepository: IUserRepository) { }
+    constructor( @inject(TYPES.IUserRepository) private userRepository: IUserRepository ) { }
 
     public GetUserService() {
         return new GetUserService(this.userRepository);
