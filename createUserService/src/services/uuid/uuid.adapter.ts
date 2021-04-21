@@ -9,7 +9,7 @@ import { IGeneratorId } from './IGenerator'
 
 
 @injectable()
-export class GeneratorId implements IGeneratorId {
+export class UuidAdapter implements IGeneratorId {
     constructor() {}
 
     generate(): string {

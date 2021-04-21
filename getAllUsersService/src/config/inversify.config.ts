@@ -4,21 +4,22 @@ import "reflect-metadata"
 import { Container } from "inversify"
 
 // Types
-import { TYPES } from "./constant/types"
+import { TYPES } from "./constants/types"
 
 // Interface
-import { IGetUserService } from '../application/IGetUser'
+import { IGetAllUsersService } from "../application/IGetAllUsers"
 import { IUserRepository } from "../repository/IUserRepository"
 
 // Class
-import getUserService from '../application/getUser'
+import GetAllUserService from "../application/getAllUsers"
 import { UserRepository } from "../repository/userRepository"
 
 // Declare IoC
 const container = new Container()
 
 // set up bindings
-container.bind<IGetUserService>(TYPES.IGetUserService).to(getUserService)
+container.bind<IGetAllUsersService>(TYPES.IGetAllUsers).to(GetAllUserService)
 container.bind<IUserRepository>(TYPES.IUserRepository).to(UserRepository)
+
 
 export { container }

@@ -15,7 +15,7 @@ import { IGeneratorId } from "../services/uuid/IGenerator"
 // Class
 import CreateUserService from "../application/createUser"
 import { UserRepository } from "../repository/userRepository"
-import { GeneratorId } from "../services/uuid/uuid.adapter"
+import { UuidAdapter } from "../services/uuid/uuid.adapter"
 
 // Declare IoC
 const container = new Container()
@@ -23,6 +23,6 @@ const container = new Container()
 // set up bindings
 container.bind<ICreateUserService>(TYPES.ICreateUserService).to(CreateUserService)
 container.bind<IUserRepository>(TYPES.IUserRepository).to(UserRepository)
-container.bind<IGeneratorId>(TYPES.IGeneratorId).to(GeneratorId)
+container.bind<IGeneratorId>(TYPES.IGeneratorId).to(UuidAdapter)
 
 export { container }
