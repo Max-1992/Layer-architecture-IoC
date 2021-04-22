@@ -6,7 +6,7 @@ import cors from "cors"
 
 // Set Config Cors
 const corsOptions = {
-    exposedHeaders: 'Authorization'
+    exposedHeaders: ['Authorization', 'Id-Repository']
 }
 
 const setUp = (application: Application) => {

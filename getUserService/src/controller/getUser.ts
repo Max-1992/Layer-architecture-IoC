@@ -23,9 +23,12 @@ export default class getUserController implements interfaces.Controller {
     @httpGet('/:id')
     async getUser(@request() req: Request, @response() res: Response) {
         try {
+
+            const idRepository = Number(req.headers['id-repository'])
+            
             // Get userId from request
             const { id } = req.params;
-            const user: IUserDto = await this.getUserService.get(id);
+            const user: IUserDto = await this.getUserService.get(id, idRepository);
 
             res.status(200).json({ ok: true, user });
         } catch (err) {

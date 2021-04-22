@@ -1,5 +1,5 @@
 // Inversify
-import { inject, injectable } from "inversify";
+import { inject, injectable, multiInject } from "inversify";
 
 // Types
 import { TYPES } from "../config/constant/types"
@@ -13,10 +13,10 @@ import { IUserDto } from "./IUserDto";
 @injectable()
 export default class GetUserService implements IGetUserService {
 
-    constructor(@inject(TYPES.IUserRepository) private userRepository: IUserRepository) {}
+    constructor(@multiInject(TYPES.IUserRepository) private userRepository: IUserRepository[]) {}
 
-    async get(id: string): Promise<IUserDto> {
-        const user = await this.userRepository.getById(id);
+    async get(id: string, idRepository: number): Promise<IUserDto> {
+        const user = await this.userRepository[idRepository].getById(id);
         return user;
     }
 }

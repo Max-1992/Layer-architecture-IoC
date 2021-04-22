@@ -13,6 +13,7 @@ import { IUserRepository } from "../repository/IUserRepository"
 // Class
 import getUserService from '../application/getUser'
 import { UserRepository } from "../repository/userRepository"
+import { UserMongoRepository } from "../repository/userMongoRepository"
 
 // Declare IoC
 const container = new Container()
@@ -20,5 +21,6 @@ const container = new Container()
 // set up bindings
 container.bind<IGetUserService>(TYPES.IGetUserService).to(getUserService)
 container.bind<IUserRepository>(TYPES.IUserRepository).to(UserRepository)
+container.bind<IUserRepository>(TYPES.IUserRepository).to(UserMongoRepository)
 
 export { container }

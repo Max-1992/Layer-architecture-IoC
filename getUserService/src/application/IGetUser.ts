@@ -2,5 +2,5 @@
 import { IUserDto } from "./IUserDto";
 
 export interface IGetUserService {
-    get(id: string): Promise<IUserDto>
+    get(id: string, idRepository: number): Promise<IUserDto>
 }
