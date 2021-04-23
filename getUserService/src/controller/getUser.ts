@@ -24,7 +24,8 @@ export default class getUserController implements interfaces.Controller {
     async getUser(@request() req: Request, @response() res: Response) {
         try {
 
-            const idRepository = Number(req.headers['id-repository'])
+            // Get idRepository
+            const idRepository: string | any = req.headers['id-repository']
             
             // Get userId from request
             const { id } = req.params;
